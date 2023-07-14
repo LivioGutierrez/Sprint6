@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/" lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>From Usuario</title>
+  <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+          crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="Style/main.css" />
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div class="container fondo">
+  <div class="row align-items-start">
+    <div class="col">
+      <!--Menu-->
+      <nav class="navbar bg-body-tertiary">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img  src="img/Liquidacion sueldo.jpg"  alt="Logo"  width="70"  height="70"/>
+          </a>
+          <ul class="nav nav-pills justify-content-end">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Inicio</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false"> Usuario</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Agregar usuario</a>
+                <a class="dropdown-item" href="#">Ver usuario</a>
+              </div>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">Empleador </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Agregar empleador</a>
+                <a class="dropdown-item" href="#">Ver usuario</a>
+              </div>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">Trabajador</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Agregar trabajador</a>
+                <a class="dropdown-item" href="#">Ver usuario</a>
+              </div>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false" > Liquidacion</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Agregar liquidacion</a>
+                <a class="dropdown-item" href="#">Ver usuario</a>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Cerrar Sesión</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!--Formulario-->
+      <div class="container d-flex align-items-center justify-content-center ">
+        <div class="row">
+          <div class="col-12 formulario-registro">
+
+            <form action="" class="from-Register from-Register-Usuario align-items-center justify-content-center  pb-5 mb-5 ">
+              <h1>Registro Usuario</h1>
+              <div class="col mt-5">
+                <label for="run">RUN</label>
+                <input type="number" class="form-control input-Register mb-3" id="run" name="run" >
+
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control input-Register mb-3" id="nombre" name="nombre">
+
+                <label for="apellido1">Apellido 1</label>
+                <input type="text" class="form-control input-Register mb-3" id="apellido1" name="apellido1">
+
+                <label for="apellido2">Apellido 2</label>
+                <input type="text" class="form-control input-Register mb-3" id="apellido2" name="apellido2">
+
+                <label for="telefono">Telefono</label>
+                <input type="text" class="form-control input-Register mb-3" id="telefono" name="telefono">
+
+                <label for="email">Email</label>
+                <input type="text" class="form-control input-Register mb-3" id="email" name="email">
+
+                <label for="pass">Password</label>
+                <input type="password" class="form-control input-Register" id="pass" name="pass">
+
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                  <label class="form-check-label" for="inlineRadio1">Empleador</label>
+                </div>
+                <div class="form-check form-check-inline  mt-4">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                  <label class="form-check-label" for="inlineRadio2">Contador</label>
+                </div>
+                <br>
+                <button type="button" class="btn  btn-Registar mt-4">Registar</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!--Footer-->
+      <footer class="pt-5 footer-RU">
+        <div class="jumbotron jumbotron-fluid text-center">
+          <div class="container">
+            <h3 class="titulo-footer">Sprint Módulo 6</h3>
+            <i class="fab fa-github-square" style="color: #ffffff"></i>
+            <p class="lead">@BootcampJava2023</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>
+
+<script
+        src="https://kit.fontawesome.com/b446e10e54.js"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"
+></script>
+</body>
+</html>

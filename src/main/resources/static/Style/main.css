@@ -1,0 +1,128 @@
+body{
+    background-color: #303030;
+}
+.fondo{
+    background-color: #252525;
+}
+.navbar{
+    height: 100px;
+    background-color: #202020;
+}
+.jumbotron{
+    background-color: #2e2e2e;
+}
+.my-4{
+    background-color: #ffffff;
+}
+h1,h3,h5,p,label{
+    color: #ffffff;
+}
+.small{
+    color: #ffffff !important;
+}
+.jumbotron-fluid{
+    height: 185px;
+}
+
+.titulo-footer{
+    margin-top: -5%;
+}
+.form-group input{
+    width: 60%;
+}
+.form-group textarea{
+    width: 60%;
+}
+.btn-login{
+    background-color: #607d8b;
+    transition: 0.5s;
+    color: #ffffff;
+}
+.btn-registar{
+    background-color: #374850;
+    color: #ffffff;
+    transition: 0.5s;
+}
+.btn-registar:hover{
+    background-color: #253136;
+    color: #ffffff;
+    transition: 0.5s;
+}
+.btn-login:hover{
+    background-color: #4d6672;
+    color: #ffffff;
+    transition: 0.5s;
+}
+.btn-enviar{
+    width: 23%;
+    background-color: #607d8b;
+    transition: 0.5s;
+    color: #ffffff;
+}
+.btn-enviar:hover{
+    background-color: #4d6672;
+    color: #ffffff;
+    transition: 0.5s;
+}
+
+.nav-link{
+    color: #ffffff;
+}
+.nav-link:hover{
+    color: #bebebe;
+}
+.active{
+    background-color: #253136 !important;
+}
+
+.fa-github-square{
+    font-size: 350%;
+}
+.input-run{
+    width: 150%;
+}
+.input-pass{
+    width: 150%;
+}
+.text-login{
+    position: relative;
+    left: 15%;
+}
+.text-login-clave{
+    position: relative;
+    left: 115%;
+    color: #ffffff !important;
+}
+.from-login{
+    margin-left: -30%;
+}
+
+.btn-Registar{
+    width: 100%;
+    background-color: #253136;
+    color: #ffffff;
+    transition: 0.5s;
+}
+.btn-Registar:hover{
+    background-color: #4d6672;
+    color: #ffffff;
+    transition: 0.5s;
+}
+.btn-Bienvenida{
+    width: 100%;
+    border-radius: 0%;
+
+    color: #ffffff;
+    background-color: #607d8b;
+}
+.dropdown-toggle:focus,
+.dropdown-toggle:visited,
+.dropdown-toggle:active {
+  background-color: #bebebe !important;
+}
+.from-Register-Usuario{
+    margin-top: 100%;
+}
+.footer-RU{
+    margin-top: 15% !important;
+}
