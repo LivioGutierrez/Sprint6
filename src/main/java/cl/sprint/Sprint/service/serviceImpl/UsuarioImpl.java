@@ -2,23 +2,26 @@ package cl.sprint.Sprint.service.serviceImpl;
 
 import cl.sprint.Sprint.entity.Usuario;
 import cl.sprint.Sprint.repository.IUsuarioRepository;
-import cl.sprint.Sprint.service.IUsuarioServie;
+import cl.sprint.Sprint.service.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
 
-public class UsuarioImpl implements IUsuarioServie {
+@Service("usuarioImpl")
+public class UsuarioImpl implements IUsuarioService {
 
-    @Autowired//
+    @Autowired
     IUsuarioRepository objUsuarioRepo;
     @Override
-    public List<Usuario> listaUsuairo() {
+    public List<Usuario> listarUsuario() {
         return objUsuarioRepo.findAll();
     }
 
     @Override
     public Usuario crearUsuario(Usuario usuario) {
+
         return objUsuarioRepo.save(usuario);
     }
 

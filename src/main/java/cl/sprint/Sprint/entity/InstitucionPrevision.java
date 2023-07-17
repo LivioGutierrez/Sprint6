@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name ="institucion_prevencion")
+@Table(name ="institucion_prevision")
 public class InstitucionPrevision {
     @Id
     @Column(nullable = false)
@@ -21,4 +21,7 @@ public class InstitucionPrevision {
 
     @OneToMany(mappedBy = "id_inst_prevision")
     List<Trabajador>listarTrabajadores;
+
+    @OneToMany(mappedBy = "id_Inst_previsional")
+    List<Liquidacion> liquidacionesPrevision;
 }

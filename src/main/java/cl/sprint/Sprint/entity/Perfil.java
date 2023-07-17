@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name ="perfl")
+@Table(name ="perfil")
 public class Perfil {
     @Id
     @Column(nullable = false)//nulllable hace que las tablas no sean nulas

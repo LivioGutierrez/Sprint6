@@ -120,9 +120,13 @@ h1,h3,h5,p,label{
 .dropdown-toggle:active {
   background-color: #bebebe !important;
 }
-.from-Register-Usuario{
-    margin-top: 100%;
+.formulario-registro {
+  max-width: 500px; /* Establece un ancho máximo para el formulario */
+  margin: 0 auto; /* Centra el formulario horizontalmente */
 }
-.footer-RU{
-    margin-top: 15% !important;
+tr{
+    color: #ffffff;
+}
+.fa-edit,.fa-trash-alt{
+    color: #ffffff;
 }

@@ -30,7 +30,7 @@ public class Usuario {
     @Column(length = 100)
     private String apellido2;
 
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false,  fetch = FetchType.EAGER)
     @JoinColumn(name = "id_perfil", nullable = false)
     private Perfil perfil;
 
@@ -43,6 +43,6 @@ public class Usuario {
     @Column
     private long telefono;
 
-    @OneToMany(mappedBy = "usuario")//indica una relación inversa con la entidad de destino
+    @OneToMany(mappedBy = "usuario")
     private List<Empleador>empleadores;
 }
