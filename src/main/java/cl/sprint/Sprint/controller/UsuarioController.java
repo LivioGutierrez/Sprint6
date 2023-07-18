@@ -6,10 +6,7 @@ import cl.sprint.Sprint.service.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -20,6 +17,8 @@ public class UsuarioController {
 
     @Autowired
     IUsuarioService objUsuarioService;
+
+    //Listar
     @GetMapping
     public String listarUsuario(Model model) {
         List<Usuario> listarUsuarios = objUsuarioService.listarUsuario();
@@ -27,8 +26,15 @@ public class UsuarioController {
         return "listaUsuario";
     }
 
+    @GetMapping("/registrar")
+    public String mostrarRegistar(Model model){
+        return "registrar";
+    }
+
+    //Crear Usuario
     @GetMapping("/crearUsuario")
     public String mostrarCrearUsuario(Model model){
+
         return "fromUsuario";
     }
 
@@ -37,6 +43,32 @@ public class UsuarioController {
         usuario.setFecha_creacion(LocalDateTime.now());
         objUsuarioService.crearUsuario(usuario);
         return "redirect:/usuario";
+    }
+
+    //Eliminar Usuario
+    @GetMapping("/{id_usuario}/eliminar")
+    public String motrarEliminar(@PathVariable int id_usuario, Model model){
+        Usuario usuarioEliminar = objUsuarioService.buscarUsuarioPorID(id_usuario);
+        model.addAttribute("usuario", usuarioEliminar);
+        return "eliminarUsuario";
+    }
+
+    @PostMapping("/eliminar/{id_usuario}")
+    public String eliminarUsuario(@PathVariable int id_usuario){
+        objUsuarioService.eliminarUsuario(id_usuario);
+        return "redirect:/usuario";
+    }
+
+    //Actualizar Usuario
+    @GetMapping("/{id_usuario}")
+    private String buscarUsuarioPorID(@PathVariable int id_usuario, Model model){
+        Usuario usuario = objUsuarioService.buscarUsuarioPorID(id_usuario);
+        model.addAttribute("usuario", id_usuario);
+        return "redirect:/usuario";
+    }
+    @PostMapping("/editar/{id_usuario}")
+    public String mostrarEditar(@PathVariable int id_usuario, Model model){
+        return "";
     }
 
 }

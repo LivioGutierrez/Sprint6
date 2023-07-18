@@ -132,9 +132,12 @@
                 <td th:text="${usuario.apellido1}"></td>
                 <td th:text="${usuario.email}"></td>
                 <td th:text="${usuario.perfil.descripcion}"></td>
-                <td>
-                    <a href=""><i class="fas fa-edit"></i></a>
-                    <a href=""><i class="fas fa-trash-alt"></i></a>
+                <td class="td-icons">
+                    <button class="icono-listar"><i class="fas fa-edit"></i></button><!--Actualizar-->
+
+                  <form th:action="@{/usuario/eliminar/{id_usuario}(id_usuario=${usuario.id_usuario})}" th:method="post" onsubmit="return confirm('¿Quiere borrar el Usuario'?)">
+                    <button class="icono-listar" type="submit" name="id_usuario" value="${usuario.id_usuario}"><i class="fas fa-trash-alt"></i></button><!--Borrar-->
+                  </form>
                 </td>
               </tr>
             </tbody>

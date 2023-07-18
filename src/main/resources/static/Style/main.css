@@ -130,3 +130,12 @@ tr{
 .fa-edit,.fa-trash-alt{
     color: #ffffff;
 }
+.td-icons{
+    display: flex;
+    justify-content: center;
+}
+.icono-listar{
+    border: none;
+    background-color: transparent;
+    padding: 5px;
+}

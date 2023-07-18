@@ -31,7 +31,7 @@ public class UsuarioImpl implements IUsuarioService {
     }
 
     @Override
-    public Usuario actualizarUsuario(Usuario usuarioActualizar) {
+    public Usuario actualizarUsuario(Usuario usuarioActualizar, int id_usuario) {
         Usuario usuario = objUsuarioRepo.findById(usuarioActualizar.getId_usuario()).orElseThrow(()->new NoSuchElementException("Usuario no encontrado"));
         usuario.setRun(usuarioActualizar.getRun());
         usuario.setClave(usuarioActualizar.getClave());
@@ -46,7 +46,7 @@ public class UsuarioImpl implements IUsuarioService {
     }
 
     @Override
-    public void eliminarUsuario(Usuario usuario) {
-        objUsuarioRepo.delete(usuario);
+    public void eliminarUsuario(int id_usuario) {
+        objUsuarioRepo.deleteById(id_usuario);
     }
 }
