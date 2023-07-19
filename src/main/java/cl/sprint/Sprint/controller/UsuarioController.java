@@ -72,11 +72,7 @@ public class UsuarioController {
         return "redirect:/usuario";
     }
 
-    //Registro
-    @GetMapping("/registrar")
-    public String mostrarRegistrar (Model model){
-        return "registrar";
-    }
+    //Registro Principal
     @PostMapping("/registrar")
     public String registrarUsuario (@ModelAttribute Usuario usuario){
         usuario.setFecha_creacion(LocalDateTime.now());

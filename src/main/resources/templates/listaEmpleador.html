@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Listar Usuario</title>
+  <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+          crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="/Style/main.css">
+  <link rel="icon" href="/img/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div class="container fondo">
+  <div class="row align-items-start">
+    <div class="col">
+      <!--Menu-->
+      <nav class="navbar bg-body-tertiary">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img
+                    src="/img/Liquidacion%20sueldo.jpg"
+                    alt="Logo"
+                    width="70"
+                    height="70"
+            />
+          </a>
+          <ul class="nav nav-pills justify-content-end">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/bienvenida">Inicio</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false"> Usuario</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="/usuario/crearUsuario">Agregar usuario</a>
+                <a class="dropdown-item" href="/usuario">Ver usuario</a>
+              </div>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">Empleador </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="/empleador/crearEmpleador">Agregar empleador</a>
+                <a class="dropdown-item" href="/empleador">Ver empleador</a>
+              </div>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">Trabajador</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Agregar trabajador</a>
+                <a class="dropdown-item" href="#">Ver trabajador</a>
+              </div>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false" > Liquidacion</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Agregar liquidacion</a>
+                <a class="dropdown-item" href="#">Ver liquidacion</a>
+              </div>
+            </li>
+
+            <form action="/login">
+              <button type="submit" class="nav-link active">Cerrar Sesión</button>
+            </form>
+
+
+          </ul>
+        </div>
+      </nav>
+
+      <h1 class="text-center">Empleador</h1>
+
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-sm-3">
+            <a href="/empleador/crearEmpleador" class="btn btn-Bienvenida">Agregar Empleador</a>
+          </div>
+        </div>
+
+        <table id="tablaUsuario" class="table table-bordered mt-4 text-center">
+          <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Run</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido1</th>
+            <th scope="col">Email</th>
+            <th scope="col">Acción</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="empleador: ${empleadores}">
+            <td th:text="${empleador.id_empleador}"></td>
+            <td th:text="${empleador.run}"></td>
+            <td th:text="${empleador.nombre}"></td>
+            <td th:text="${empleador.apellido1}"></td>
+            <td th:text="${empleador.email}"></td>
+            <td class="td-icons">
+              <form th:action="@{/empleador/editar/{id_empleador}(id_empleador=${empleador.id_empleador})}" th:method="post" onsubmit="return confirm('¿Quiere modificar este usuario?')">
+                <button class="icono-listar" type="submit" name="id_empleador" value="${empleador.id_empleador}"><i class="fas fa-edit"></i></button><!--Actualizar-->
+              </form>
+
+              <form th:action="@{/empleador/eliminar/{id_empleador}(id_empleador=${empleador.id_empleador})}" th:method="post" onsubmit="return confirm('¿Quiere eliminar este usuario?')">
+                <button class="icono-listar" type="submit" name="id_usuario" value="${empleador.id_usuario}"><i class="fas fa-trash-alt"></i></button><!--Borrar-->
+              </form>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+        <!--Footer-->
+        <footer class="pt-5">
+          <div class="jumbotron jumbotron-fluid text-center">
+            <div class="container">
+              <h3 class="titulo-footer">Sprint Módulo 6</h3>
+              <i class="fab fa-github-square" style="color: #ffffff"></i>
+              <p class="lead">@BootcampJava2023</p>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script
+        src="https://kit.fontawesome.com/b446e10e54.js"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"
+></script>
+</body>
+</html>

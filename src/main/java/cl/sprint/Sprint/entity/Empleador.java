@@ -37,7 +37,7 @@ public class Empleador {
     private Usuario usuario;
 
     @Column
-    private int telefono;
+    private long telefono;
 
     @ManyToMany
     @JoinTable(name = "empl_trab",//con que tabla que se relacionara

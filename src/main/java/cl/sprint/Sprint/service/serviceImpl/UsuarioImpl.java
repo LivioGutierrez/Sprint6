@@ -16,6 +16,7 @@ public class UsuarioImpl implements IUsuarioService {
     IUsuarioRepository objUsuarioRepo;
     @Override
     public List<Usuario> listarUsuario() {
+
         return objUsuarioRepo.findAll();
     }
 
@@ -53,6 +54,7 @@ public class UsuarioImpl implements IUsuarioService {
 
     @Override
     public void eliminarUsuario(int id_usuario) {
+
         objUsuarioRepo.deleteById(id_usuario);
     }
 }
