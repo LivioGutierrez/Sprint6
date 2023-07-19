@@ -26,11 +26,6 @@ public class UsuarioController {
         return "listaUsuario";
     }
 
-    @GetMapping("/registrar")
-    public String mostrarRegistar(Model model){
-        return "registrar";
-    }
-
     //Crear Usuario
     @GetMapping("/crearUsuario")
     public String mostrarCrearUsuario(Model model){
@@ -63,12 +58,30 @@ public class UsuarioController {
     @GetMapping("/{id_usuario}")
     private String buscarUsuarioPorID(@PathVariable int id_usuario, Model model){
         Usuario usuario = objUsuarioService.buscarUsuarioPorID(id_usuario);
-        model.addAttribute("usuario", id_usuario);
+        model.addAttribute("usuario", usuario);
         return "redirect:/usuario";
     }
     @PostMapping("/editar/{id_usuario}")
     public String mostrarEditar(@PathVariable int id_usuario, Model model){
-        return "";
+        model.addAttribute("usuario", objUsuarioService.buscarUsuarioPorID(id_usuario));
+        return "actualizarUsuario";
+    }
+    @PostMapping("/actualizar/{id_usuario}")
+    public String actualizarUsuario(@ModelAttribute Usuario usuario, @PathVariable int id_usuario){
+        objUsuarioService.actualizarUsuario(usuario, id_usuario);
+        return "redirect:/usuario";
+    }
+
+    //Registro
+    @GetMapping("/registrar")
+    public String mostrarRegistrar (Model model){
+        return "registrar";
+    }
+    @PostMapping("/registrar")
+    public String registrarUsuario (@ModelAttribute Usuario usuario){
+        usuario.setFecha_creacion(LocalDateTime.now());
+        objUsuarioService.registrarUsuario(usuario);
+        return "redirect:/login";
     }
 
 }

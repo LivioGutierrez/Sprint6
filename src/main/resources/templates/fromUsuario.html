@@ -25,13 +25,13 @@
           </a>
           <ul class="nav nav-pills justify-content-end">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#">Inicio</a>
+              <a class="nav-link" aria-current="page" href="/bienvenida">Inicio</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false"> Usuario</a>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Agregar usuario</a>
-                <a class="dropdown-item" href="#">Ver usuario</a>
+                <a class="dropdown-item" href="/usuario/crearUsuario">Agregar usuario</a>
+                <a class="dropdown-item" href="/usuario">Ver usuario</a>
               </div>
             </li>
 
@@ -59,9 +59,11 @@
               </div>
             </li>
 
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Cerrar Sesión</a>
-            </li>
+            <form action="/login">
+              <button type="submit" class="nav-link active">Cerrar Sesión</button>
+            </form>
+
+
           </ul>
         </div>
       </nav>
@@ -75,25 +77,25 @@
               <h1>Registro Usuario</h1>
               <div class="col mt-5">
                 <label for="run">RUN</label>
-                <input type="number" class="form-control input-Register mb-3" id="run" name="run" >
+                <input type="number" class="form-control input-Register mb-3" id="run" name="run" required>
 
                 <label for="nombre">Nombre</label>
-                <input type="text" class="form-control input-Register mb-3" id="nombre" name="nombre">
+                <input type="text" class="form-control input-Register mb-3" id="nombre" name="nombre" required>
 
                 <label for="apellido1">Apellido 1</label>
-                <input type="text" class="form-control input-Register mb-3" id="apellido1" name="apellido1">
+                <input type="text" class="form-control input-Register mb-3" id="apellido1" name="apellido1" required>
 
                 <label for="apellido2">Apellido 2</label>
-                <input type="text" class="form-control input-Register mb-3" id="apellido2" name="apellido2">
+                <input type="text" class="form-control input-Register mb-3" id="apellido2" name="apellido2" required>
 
                 <label for="telefono">Telefono</label>
-                <input type="text" class="form-control input-Register mb-3" id="telefono" name="telefono">
+                <input type="text" class="form-control input-Register mb-3" id="telefono" name="telefono" required>
 
                 <label for="email">Email</label>
-                <input type="text" class="form-control input-Register mb-3" id="email" name="email">
+                <input type="text" class="form-control input-Register mb-3" id="email" name="email" required>
 
                 <label for="pass">clave</label>
-                <input type="password" class="form-control input-Register" id="pass" name="clave">
+                <input type="password" class="form-control input-Register" id="pass" name="clave" required>
 
                 <div class="form-check form-check-inline">
                   <input class="form-check-input" type="radio" name="perfil.id_perfil" id="inlineRadio1" th:value="3">

@@ -30,7 +30,7 @@
               </a>
               <ul class="nav nav-pills justify-content-end">
                 <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="#">Inicio</a>
+                  <a class="nav-link" aria-current="page" href="/bienvenida">Inicio</a>
                 </li>
                 <li class="nav-item dropdown">
                   <a
@@ -43,8 +43,8 @@
                     Usuario
                   </a>
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Agregar usuario</a>
-                    <a class="dropdown-item" href="#">Ver usuario</a>
+                    <a class="dropdown-item" href="/usuario/crearUsuario">Agregar usuario</a>
+                    <a class="dropdown-item" href="/usuario">Ver usuario</a>
                   </div>
                 </li>
 
@@ -96,9 +96,9 @@
                   </div>
                 </li>
 
-                <li class="nav-item">
-                  <a class="nav-link active" href="#">Cerrar Sesión</a>
-                </li>
+                <form action="/login">
+                  <button type="submit" class="nav-link active">Cerrar Sesión</button>
+                </form>
               </ul>
             </div>
           </nav>
@@ -108,7 +108,7 @@
           <div class="container mt-5">
             <div class="row">
               <div class="col-sm-3">
-                <a href="#" class="btn btn-Bienvenida">Agregar Usuario</a>
+                <a href="/usuario/crearUsuario" class="btn btn-Bienvenida">Agregar Usuario</a>
               </div>
           </div>
 
@@ -133,9 +133,12 @@
                 <td th:text="${usuario.email}"></td>
                 <td th:text="${usuario.perfil.descripcion}"></td>
                 <td class="td-icons">
-                    <button class="icono-listar"><i class="fas fa-edit"></i></button><!--Actualizar-->
+                  <form th:action="@{/usuario/editar/{id_usuario}(id_usuario=${usuario.id_usuario})}" th:method="post" onsubmit="return confirm('¿Quiere modificar este usuario?')">
+                    <button class="icono-listar" type="submit" name="id_usuario" value="${usuario.id_usuario}"><i class="fas fa-edit"></i></button><!--Actualizar-->
+                  </form>
 
-                  <form th:action="@{/usuario/eliminar/{id_usuario}(id_usuario=${usuario.id_usuario})}" th:method="post" onsubmit="return confirm('¿Quiere borrar el Usuario'?)">
+
+                  <form th:action="@{/usuario/eliminar/{id_usuario}(id_usuario=${usuario.id_usuario})}" th:method="post" onsubmit="return confirm('¿Quiere eliminar este usuario?')">
                     <button class="icono-listar" type="submit" name="id_usuario" value="${usuario.id_usuario}"><i class="fas fa-trash-alt"></i></button><!--Borrar-->
                   </form>
                 </td>
@@ -156,6 +159,8 @@
         </div>
       </div>
     </div>
+    </div>
+
 
     <script
       src="https://kit.fontawesome.com/b446e10e54.js"

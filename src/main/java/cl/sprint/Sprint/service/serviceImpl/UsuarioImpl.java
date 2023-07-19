@@ -25,6 +25,12 @@ public class UsuarioImpl implements IUsuarioService {
         return objUsuarioRepo.save(usuario);
     }
 
+    //Registrar usuario
+    @Override
+    public Usuario registrarUsuario(Usuario usuario) {
+        return objUsuarioRepo.save(usuario);
+    }
+
     @Override
     public Usuario buscarUsuarioPorID(int id_usuario) {
         return objUsuarioRepo.findById(id_usuario).orElseThrow(()-> new NoSuchElementException("Usuario no encontrado"));
@@ -40,7 +46,7 @@ public class UsuarioImpl implements IUsuarioService {
         usuario.setApellido2(usuarioActualizar.getApellido2());
         usuario.setPerfil(usuarioActualizar.getPerfil());
         usuario.setEmail(usuarioActualizar.getEmail());
-        usuario.setFecha_creacion(usuarioActualizar.getFecha_creacion());
+        //usuario.setFecha_creacion(usuarioActualizar.getFecha_creacion());
         usuario.setTelefono(usuarioActualizar.getTelefono());
         return objUsuarioRepo.save(usuario);
     }
