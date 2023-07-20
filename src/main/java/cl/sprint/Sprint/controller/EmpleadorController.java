@@ -41,4 +41,31 @@ public class EmpleadorController {
         objEmpleadorService.crearEmpleador(empleador);
         return "redirect:/empleador";
     }
+
+    //Actualizar Empleador
+    @GetMapping("/{id_empleador}")
+    public String buscarEmpleador(@PathVariable int id_empleador, Model model){
+        Empleador empleador = objEmpleadorService.buscarEmpleadorPorID(id_empleador);
+        model.addAttribute("empleador", empleador);
+        return "redirect:/empleador";
+    }
+    @PostMapping("/editar/{id_empleador}")
+    public String mostrarEmpleador(@PathVariable int id_empleador, Model model) {
+        model.addAttribute("empleador", objEmpleadorService.buscarEmpleadorPorID(id_empleador));
+        List<Usuario> usuarios = objUsuarioService.listarUsuario();
+        model.addAttribute("usuarios", usuarios);
+        return "actualizarEmpleado";
+    }
+    @PostMapping("/actualizar/{id_empleador}")
+    public String actualizarEmpleador(@ModelAttribute Empleador empleador, @PathVariable int id_empleador, @RequestParam("usuarioId") int usuarioId) {
+        Usuario usuario = objUsuarioService.buscarUsuarioPorID(usuarioId);
+        empleador.setUsuario(usuario);
+        objEmpleadorService.actualizarEmpleador(empleador, id_empleador);
+        return "redirect:/empleador";
+    }
+    @PostMapping("/eliminar/{id_empleador}")
+    public String eliminarEmpleadorPorId(@PathVariable int id_empleador) {
+        objEmpleadorService.eliminar(id_empleador);
+        return "redirect:/empleador";
+    }
 }

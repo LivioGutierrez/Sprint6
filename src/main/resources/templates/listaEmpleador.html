@@ -18,60 +18,7 @@
   <div class="row align-items-start">
     <div class="col">
       <!--Menu-->
-      <nav class="navbar bg-body-tertiary">
-        <div class="container">
-          <a class="navbar-brand" href="#">
-            <img
-                    src="/img/Liquidacion%20sueldo.jpg"
-                    alt="Logo"
-                    width="70"
-                    height="70"
-            />
-          </a>
-          <ul class="nav nav-pills justify-content-end">
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/bienvenida">Inicio</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false"> Usuario</a>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="/usuario/crearUsuario">Agregar usuario</a>
-                <a class="dropdown-item" href="/usuario">Ver usuario</a>
-              </div>
-            </li>
-
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">Empleador </a>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="/empleador/crearEmpleador">Agregar empleador</a>
-                <a class="dropdown-item" href="/empleador">Ver empleador</a>
-              </div>
-            </li>
-
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">Trabajador</a>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Agregar trabajador</a>
-                <a class="dropdown-item" href="#">Ver trabajador</a>
-              </div>
-            </li>
-
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false" > Liquidacion</a>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Agregar liquidacion</a>
-                <a class="dropdown-item" href="#">Ver liquidacion</a>
-              </div>
-            </li>
-
-            <form action="/login">
-              <button type="submit" class="nav-link active">Cerrar Sesión</button>
-            </form>
-
-
-          </ul>
-        </div>
-      </nav>
+      <header th:include="~{../static/html/menuDos.html}"></header>
 
       <h1 class="text-center">Empleador</h1>
 
@@ -102,11 +49,11 @@
             <td th:text="${empleador.email}"></td>
             <td class="td-icons">
               <form th:action="@{/empleador/editar/{id_empleador}(id_empleador=${empleador.id_empleador})}" th:method="post" onsubmit="return confirm('¿Quiere modificar este usuario?')">
-                <button class="icono-listar" type="submit" name="id_empleador" value="${empleador.id_empleador}"><i class="fas fa-edit"></i></button><!--Actualizar-->
+                <button class="icono-listar" type="submit" name="id_usuario"><i class="fas fa-edit"></i></button><!--Actualizar-->
               </form>
 
               <form th:action="@{/empleador/eliminar/{id_empleador}(id_empleador=${empleador.id_empleador})}" th:method="post" onsubmit="return confirm('¿Quiere eliminar este usuario?')">
-                <button class="icono-listar" type="submit" name="id_usuario" value="${empleador.id_usuario}"><i class="fas fa-trash-alt"></i></button><!--Borrar-->
+                <button class="icono-listar" type="submit" name="id_usuario" ><i class="fas fa-trash-alt"></i></button><!--Borrar-->
               </form>
             </td>
           </tr>

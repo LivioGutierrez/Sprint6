@@ -18,58 +18,7 @@
       <div class="row align-items-start">
         <div class="col">
           <!--Menu-->
-          <nav class="navbar bg-body-tertiary">
-            <div class="container">
-              <a class="navbar-brand" href="#">
-                <img
-                  src="/img/Liquidacion%20sueldo.jpg"
-                  alt="Logo"
-                  width="70"
-                  height="70"
-                />
-              </a>
-              <ul class="nav nav-pills justify-content-end">
-                <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="#">Inicio</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false"> Usuario</a>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Agregar usuario</a>
-                    <a class="dropdown-item" href="#">Ver usuario</a>
-                  </div>
-                </li>
-
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">Empleador </a>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Agregar empleador</a>
-                    <a class="dropdown-item" href="#">Ver usuario</a>
-                  </div>
-                </li>
-
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">Trabajador</a>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Agregar trabajador</a>
-                    <a class="dropdown-item" href="#">Ver usuario</a>
-                  </div>
-                </li>
-
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false" > Liquidacion</a>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Agregar liquidacion</a>
-                    <a class="dropdown-item" href="#">Ver usuario</a>
-                  </div>
-                </li>
-
-                <li class="nav-item">
-                  <a class="nav-link active" href="#">Cerrar Sesión</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
+          <header th:include="~{../static/html/menuDos.html}"></header>
           
            <!--Formulario-->
            <div class="container d-flex align-items-center justify-content-center ">
