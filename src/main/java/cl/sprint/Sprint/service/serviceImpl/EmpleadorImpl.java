@@ -15,17 +15,19 @@ public class EmpleadorImpl implements IEmpleadorService {
     IEmpleadorRepository objEmpleadorRepo;
     @Override
     public List<Empleador> listarEmpleador() {
+
         return objEmpleadorRepo.findAll();
     }
 
     @Override
     public Empleador crearEmpleador(Empleador empleador) {
+
         return objEmpleadorRepo.save(empleador);
     }
 
     @Override
     public Empleador buscarEmpleadorPorID(int id_empleador) {
-        return objEmpleadorRepo.findById(id_empleador).orElseThrow(()-> new NoSuchElementException("Usuario no encontrado"));
+        return objEmpleadorRepo.findById(id_empleador).orElseThrow(()-> new NoSuchElementException("Empleador no encontrado"));
     }
 
     @Override
@@ -45,6 +47,7 @@ public class EmpleadorImpl implements IEmpleadorService {
 
     @Override
     public void eliminar(int id_empleador) {
+
         objEmpleadorRepo.deleteById(id_empleador);
     }
 }

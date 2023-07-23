@@ -39,9 +39,12 @@ public class Empleador {
     @Column
     private long telefono;
 
-    @ManyToMany
+/*    @ManyToMany
     @JoinTable(name = "empl_trab",//con que tabla que se relacionara
     joinColumns = @JoinColumn(name = "id_empleador", nullable = false),//la tabla de la relacion
     inverseJoinColumns = @JoinColumn(name = "id_trabajor",nullable = false))//hacia donde sige la relacion
+    private List<Trabajador>trabajadores;*/
+
+    @ManyToMany(mappedBy = "listaEmpleador")
     private List<Trabajador>trabajadores;
 }

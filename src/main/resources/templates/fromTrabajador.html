@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/" lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>From Trabajador</title>
+  <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+          crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="/Style/main.css" />
+  <link rel="icon" href="/img/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div class="container fondo">
+  <div class="row align-items-start">
+    <div class="col">
+      <!--Menu-->
+      <header th:include="~{../static/html/menuDos.html}"></header>
+
+      <!--Formulario-->
+      <div class="container d-flex align-items-center justify-content-center ">
+        <div class="row">
+          <div class="col-12 formulario-registro">
+
+            <form th:action="@{/trabajador/crearTrabajador}" id="contactForm" th:method="post" class="from-Register from-Register-Usuario align-items-center justify-content-center  pb-5 mb-5 ">
+              <h1>Registro Trabajador</h1>
+              <div class="col mt-5">
+                <label for="run">RUN</label>
+                <input type="number" class="form-control input-Register mb-3" id="run" name="run" required>
+
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control input-Register mb-3" id="nombre" name="nombre" required>
+
+                <label for="apellido1">Apellido 1</label>
+                <input type="text" class="form-control input-Register mb-3" id="apellido1" name="apellido1" required>
+
+                <label for="apellido2">Apellido 2(opcional)</label>
+                <input type="text" class="form-control input-Register mb-3" id="apellido2" name="apellido2" >
+
+                <label for="id_empleador" class="form-label">Empleador</label>
+                <select class="form-control" id="id_empleador" name="id_empleador">
+                  <option th:each="empleador: ${empleador}" th:value="${empleador.id_empleador}" th:text="${empleador.nombre + ' ' + empleador.apellido1}"></option>
+                </select>
+
+                <label for="direccion">Dirección</label>
+                <input type="text" class="form-control input-Register mb-3" id="direccion" name="direccion" required>
+
+                <label for="email">Email</label>
+                <input type="text" class="form-control input-Register mb-3" id="email" name="email" required>
+
+                <label for="telefono">Teléfono</label>
+                <input type="text" class="form-control input-Register mb-3" id="telefono" name="telefono" required>
+
+                <label for="saludId" class="form-label">Institución de Salud</label>
+                <select class="form-control" id="saludId" name="saludId">
+                  <option th:each="salud: ${salud}" th:value="${salud.id_inst_salud}" th:text="${salud.descripcion}"></option>
+                </select>
+
+                <label for="previsionId" class="form-label">AFP</label>
+                <select class="form-control" id="previsionId" name="previsionId">
+                  <option th:each="prevision: ${prevision}" th:value="${prevision.id_inst_prevision}" th:text="${prevision.descripcion}"></option>
+                </select>
+                <br>
+                <button type="submit" class="btn  btn-Registar mt-4">Agregar Trabajador</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!--Footer-->
+      <footer class="pt-5 footer-RU">
+        <div class="jumbotron jumbotron-fluid text-center">
+          <div class="container">
+            <h3 class="titulo-footer">Sprint Módulo 6</h3>
+            <i class="fab fa-github-square" style="color: #ffffff"></i>
+            <p class="lead">@BootcampJava2023</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>
+
+<script
+        src="https://kit.fontawesome.com/b446e10e54.js"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"
+></script>
+</body>
+</html>

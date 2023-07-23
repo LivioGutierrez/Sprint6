@@ -73,6 +73,11 @@ public class UsuarioController {
     }
 
     //Registro Principal
+
+    @GetMapping("/registrar")
+    public String mostrarFormularioRegistro(Model model){
+        return "registrar";
+    }
     @PostMapping("/registrar")
     public String registrarUsuario (@ModelAttribute Usuario usuario){
         usuario.setFecha_creacion(LocalDateTime.now());

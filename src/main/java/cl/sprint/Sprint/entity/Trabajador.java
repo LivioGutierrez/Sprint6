@@ -10,9 +10,9 @@ import java.util.List;
 @Table(name ="trabajador")
 public class Trabajador {
     @Id
-    @Column(nullable = false)
+    @Column(name = "id_trabajador", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_trabajo;
+    private int id_trabajador;
 
     @Column(unique = true, nullable = false)
     private int run;
@@ -29,16 +29,21 @@ public class Trabajador {
     @Column(length = 100)
     private String email;
 
-    @ManyToOne(optional = false,cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_inst_prevision", nullable = false)
     private InstitucionPrevision id_inst_prevision;//ID
 
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_inst_salud", nullable = false)
     private InstitucionSalud id_inst_salud;//ID
 
     @Column
-    private int telefono;
-    @ManyToMany(mappedBy = "trabajadores")
+    private long telefono;
+
+    @OneToMany(mappedBy = "trabajadores")
     private List<Empleador>empleadores;
+
+    @ManyToMany
+    @JoinTable(name = "empl_trab", joinColumns = @JoinColumn(name = "id_trabajador", nullable = false),inverseJoinColumns = @JoinColumn(name = "id_empleador", nullable = false))
+    private List<Empleador> listaEmpleador;
 }
