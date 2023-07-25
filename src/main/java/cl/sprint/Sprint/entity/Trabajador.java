@@ -44,6 +44,8 @@ public class Trabajador {
     private List<Empleador>empleadores;
 
     @ManyToMany
-    @JoinTable(name = "empl_trab", joinColumns = @JoinColumn(name = "id_trabajador", nullable = false),inverseJoinColumns = @JoinColumn(name = "id_empleador", nullable = false))
+    @JoinTable(name = "empl_trab",
+            joinColumns = @JoinColumn(name = "id_trabajador", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "id_empleador", nullable = false))
     private List<Empleador> listaEmpleador;
 }

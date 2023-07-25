@@ -1,6 +1,4 @@
 package cl.sprint.Sprint.service.serviceImpl;
-
-import cl.sprint.Sprint.entity.Empleador;
 import cl.sprint.Sprint.entity.Trabajador;
 import cl.sprint.Sprint.repository.ITrabajadorRepository;
 import cl.sprint.Sprint.service.ITrabajadorService;
@@ -14,6 +12,7 @@ import java.util.NoSuchElementException;
 public class TrabajadorImpl implements ITrabajadorService {
     @Autowired
     ITrabajadorRepository objTrabajadorRepo;
+
     @Override
     public List<Trabajador> listarTrabajador() {
         return objTrabajadorRepo.findAll();
