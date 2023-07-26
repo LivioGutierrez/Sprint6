@@ -1,5 +1,6 @@
 package cl.sprint.Sprint.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -30,6 +31,7 @@ public class Usuario {
     @Column(length = 100)
     private String apellido2;
 
+    @JsonIgnore
     @ManyToOne(optional = false,  fetch = FetchType.EAGER)
     @JoinColumn(name = "id_perfil", nullable = false)
     private Perfil perfil;
@@ -43,6 +45,7 @@ public class Usuario {
     @Column
     private long telefono;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "usuario")
     private List<Empleador>empleadores;
 }

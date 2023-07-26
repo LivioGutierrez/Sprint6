@@ -20,7 +20,7 @@ public class InstiPrevisionImpl implements IPrevicionSerive {
     }
 
     @Override
-    public InstitucionPrevision buscarPrevisionPorId(int idInstPrevision) {
-        return objPrevisionRepo.findById(idInstPrevision).orElseThrow(() -> new NoSuchElementException("Institución no encontrada"));
+    public InstitucionPrevision buscarPrevisionPorId(int id_inst_prevision) {
+        return objPrevisionRepo.findById(id_inst_prevision).orElseThrow(() -> new NoSuchElementException("Institución no encontrada"));
     }
 }

@@ -40,13 +40,13 @@ public class UsuarioController {
         return "redirect:/usuario";
     }
 
-    //Eliminar Usuario
+/*    //Eliminar Usuario
     @GetMapping("/{id_usuario}/eliminar")
     public String motrarEliminar(@PathVariable int id_usuario, Model model){
         Usuario usuarioEliminar = objUsuarioService.buscarUsuarioPorID(id_usuario);
         model.addAttribute("usuario", usuarioEliminar);
         return "eliminarUsuario";
-    }
+    }*/
 
     @PostMapping("/eliminar/{id_usuario}")
     public String eliminarUsuario(@PathVariable int id_usuario){

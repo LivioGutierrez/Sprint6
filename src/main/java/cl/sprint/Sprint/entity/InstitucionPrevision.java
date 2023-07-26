@@ -1,5 +1,6 @@
 package cl.sprint.Sprint.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -19,9 +20,11 @@ public class InstitucionPrevision {
     @Column(nullable = false)
     private float porc_dcto;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "id_inst_prevision")
     List<Trabajador>listarTrabajadores;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "id_Inst_previsional")
     List<Liquidacion> liquidacionesPrevision;
 }

@@ -1,5 +1,6 @@
 package cl.sprint.Sprint.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -19,6 +20,7 @@ public class Perfil {
     @Column(nullable = false)
     private boolean estado;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "perfil")
     private List<Usuario> usuarios;
 }

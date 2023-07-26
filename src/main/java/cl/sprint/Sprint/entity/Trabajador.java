@@ -1,5 +1,6 @@
 package cl.sprint.Sprint.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -29,9 +30,11 @@ public class Trabajador {
     @Column(length = 100)
     private String email;
 
+
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_inst_prevision", nullable = false)
     private InstitucionPrevision id_inst_prevision;//ID
+
 
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_inst_salud", nullable = false)
@@ -40,9 +43,11 @@ public class Trabajador {
     @Column
     private long telefono;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "trabajadores")
     private List<Empleador>empleadores;
 
+    @JsonIgnore
     @ManyToMany
     @JoinTable(name = "empl_trab",
             joinColumns = @JoinColumn(name = "id_trabajador", nullable = false),

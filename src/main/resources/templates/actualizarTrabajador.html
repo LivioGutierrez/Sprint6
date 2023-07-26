@@ -29,7 +29,7 @@
               <h1>Registro Trabajador</h1>
               <div class="col mt-5">
                 <label for="run">RUN</label>
-                <input type="number" th:value="${trabajador.getRun()}" class="form-control input-Register mb-3" id="run" name="run" required>
+                <input type="number" th:value="${trabajador.getRun()}" disabled class="form-control input-Register mb-3" id="run" name="run" required>
 
                 <label for="nombre">Nombre</label>
                 <input type="text" th:value="${trabajador.getNombre()}" class="form-control input-Register mb-3" id="nombre" name="nombre" required>

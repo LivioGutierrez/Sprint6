@@ -1,5 +1,6 @@
 package cl.sprint.Sprint.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -13,6 +14,7 @@ public class Liquidacion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_liquidacion;
 
+    @JsonIgnore
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_trabajador", nullable = false)
     private Trabajador trabajador;
@@ -26,6 +28,7 @@ public class Liquidacion {
     @Column(nullable = false)
     private int sueldo_liquido;
 
+    @JsonIgnore
     @ManyToOne(optional = false,  fetch = FetchType.EAGER)
     @JoinColumn(name = "id_inst_salud", nullable = false)
     private InstitucionSalud id_Inst_Salud;
@@ -33,6 +36,7 @@ public class Liquidacion {
     @Column(nullable = false)
     private int monto_inst_salud;
 
+    @JsonIgnore
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_inst_previsional", nullable = false)
     private InstitucionPrevision id_Inst_previsional;

@@ -25,44 +25,44 @@
                 <div class="row">
                     <div class="col-12 formulario-registro">
 
-                        <form th:action="@{/trabajador/crearTrabajador}" id="contactForm" th:method="post" class="from-Register from-Register-Usuario align-items-center justify-content-center  pb-5 mb-5 ">
+                        <form th:action="@{/liquidacion/crearLiquidacion}" id="contactForm" th:method="post" class="from-Register from-Register-Usuario align-items-center justify-content-center  pb-5 mb-5 ">
                             <h1>Crear Liquidacion</h1>
                             <div class="col mt-5">
                                 <label for="trabajador" class="form-label">Trabajador</label>
                                 <select class="form-control" id="trabajador" name="id_trabajador">
-                                    <option th:each="trabajador: ${trabajador}" th:value="${trabajador.id_trabajador}" th:text="${trabajador.nombre}"></option>
+                                    <option th:each="trabajador: ${trabajador}" th:value="${trabajador.id_trabajador}" th:text="${trabajador.nombre + ' ' + trabajador.apellido1}"></option>
                                 </select>
 
-                                <label for="sueldoImponible">Sueldo Imponible</label>
-                                <input type="number" class="form-control input-Register mb-3" id="sueldoImponible" name="id_inst_prevision" required>
+                                <label >Sueldo Imponible</label>
+                                <input type="number" class="form-control input-Register mb-3" name="sueldo_imponible" required>
 
                                 <label for="saludId" class="form-label">Institución de Salud</label>
                                 <select class="form-control" id="saludId" name="saludId">
                                     <option th:each="salud: ${salud}" th:value="${salud.id_inst_salud}" th:text="${salud.descripcion}"></option>
                                 </select>
 
-                                <label for="montoSalud">Monto Salud</label>
-                                <input type="text" class="form-control input-Register mb-3" id="montoSalud" name="monto_inst_prevision" >
+                                <label>Monto Salud</label>
+                                <input type="number" class="form-control input-Register mb-3" name="monto_inst_salud" >
 
-                                <label for="previsionId" class="form-label">AFP</label>
+                                <label class="form-label">AFP</label>
                                 <select class="form-control" id="previsionId" name="previsionId">
                                     <option th:each="prevision: ${prevision}" th:value="${prevision.id_inst_prevision}" th:text="${prevision.descripcion}"></option>
                                 </select>
 
-                                <label for="montoAFP">Monto AFP</label>
-                                <input type="text" class="form-control input-Register mb-3" id="montoAFP" name="monto_inst_prevision" required>
+                                <label >Monto AFP</label>
+                                <input type="number" class="form-control input-Register mb-3"  name="monto_inst_previsional" required>
 
                                 <label for="totalDescuento">Total Descuento</label>
-                                <input type="text" class="form-control input-Register mb-3" id="totalDescuento" name="total_descuento" required>
+                                <input type="number" class="form-control input-Register mb-3" id="totalDescuento" name="total_descuento" required>
 
                                 <label for="totalHaberes">Total Haberes</label>
-                                <input type="text" class="form-control input-Register mb-3" id="totalHaberes" name="total_haberes" required>
+                                <input type="number" class="form-control input-Register mb-3" id="totalHaberes" name="total_haberes" required>
 
                                 <label for="anticipo">Anticipo</label>
-                                <input type="text" class="form-control input-Register mb-3" id="anticipo" name="anticipado" required>
+                                <input type="number" class="form-control input-Register mb-3" id="anticipo" name="anticipo" required>
 
-                                <label for="sueldoLíquido">Sueldo Líquido</label>
-                                <input type="text" class="form-control input-Register mb-3" id="sueldoLíquido" name="sueldo_Líquido" required>
+                                <label >Sueldo Líquido</label>
+                                <input type="number" class="form-control input-Register mb-3" name="sueldo_liquido"  required>
 
                                 <br>
                                 <button type="submit" class="btn  btn-Registar mt-4">Agregar Trabajador</button>
@@ -101,5 +101,6 @@
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
         crossorigin="anonymous"
 ></script>
+
 </body>
 </html>

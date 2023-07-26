@@ -1,8 +1,11 @@
 package cl.sprint.Sprint.service.serviceImpl;
 
+import cl.sprint.Sprint.entity.InstitucionPrevision;
+import cl.sprint.Sprint.entity.InstitucionSalud;
 import cl.sprint.Sprint.entity.Liquidacion;
 import cl.sprint.Sprint.repository.ILiquidacionRepository;
 import cl.sprint.Sprint.service.ILiquidicionService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,13 +16,13 @@ import java.util.NoSuchElementException;
 public class LiquidacionImpl implements ILiquidicionService {
     @Autowired
     ILiquidacionRepository objLiquidacionRepo;
-
     @Override
     public List<Liquidacion> listarLiquidaciones() {
         return objLiquidacionRepo.findAll();
     }
 
     @Override
+    @Transactional
     public Liquidacion crearLiquidacion(Liquidacion liquidacion) {
         return objLiquidacionRepo.save(liquidacion);
     }
@@ -33,7 +36,6 @@ public class LiquidacionImpl implements ILiquidicionService {
     public Liquidacion actualizacionLiquidacion(Liquidacion actualizarliquidacion, long id_liquidacion) {
         Liquidacion liquidacion = objLiquidacionRepo.findById(id_liquidacion).orElseThrow(() -> new NoSuchElementException("Liquidación no encontrada"));
         liquidacion.setTrabajador(actualizarliquidacion.getTrabajador());
-        liquidacion.setPeriodo(actualizarliquidacion.getPeriodo());
         liquidacion.setSueldo_imponible(actualizarliquidacion.getSueldo_imponible());
         liquidacion.setSueldo_liquido(actualizarliquidacion.getSueldo_imponible());
         liquidacion.setId_Inst_Salud(actualizarliquidacion.getId_Inst_Salud());

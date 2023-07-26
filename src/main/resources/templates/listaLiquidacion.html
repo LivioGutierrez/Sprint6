@@ -25,7 +25,7 @@
             <div class="container mt-5">
                 <div class="row">
                     <div class="col-sm-3">
-                        <a href="/empleador/crearEmpleador" class="btn btn-Bienvenida">Agregar Liquidacion</a>
+                        <a href="/liquidacion/crearLiquidacion" class="btn btn-Bienvenida">Agregar Liquidacion</a>
                     </div>
                 </div>
 
@@ -48,7 +48,7 @@
                         <td th:text="${liquidacion.sueldo_imponible}"></td>
                         <td th:text="${liquidacion.sueldo_liquido}"></td>
                         <td class="td-icons">
-                            <form >
+                            <form th:action="@{/liquidacion/editar/{id_liquidacion}(id_liquidacion=${liquidacion.id_liquidacion})}" th:method="post" onsubmit="return confirm('¿Quiere modificar este usuario?')">
                                 <button class="icono-listar" type="submit" name="id_usuario"><i class="fas fa-edit"></i></button><!--Actualizar-->
                             </form>
 
